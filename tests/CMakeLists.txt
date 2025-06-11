@@ -42,18 +42,20 @@ target_include_directories(pipes_test PRIVATE
 
 target_compile_features(pipes_test PRIVATE cxx_std_14)
 
-target_compile_options(pipes_test
+target_compile_options(pipes_test 
                        PRIVATE $<$<CXX_COMPILER_ID:MSVC>:/std:c++17>
                        $<$<CXX_COMPILER_ID:MSVC>:/W4>
                        $<$<CXX_COMPILER_ID:MSVC>:/WX>
-                       $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Wall>
-                       $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Wextra>
-                       $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Werror>
-                       $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-pedantic>)
+                       $<$<AND:$<STREQUAL:$<PLATFORM_ID>,Linux>,$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>>:-Wall>
+                       $<$<AND:$<STREQUAL:$<PLATFORM_ID>,Linux>,$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>>:-Wextra>
+                       $<$<AND:$<STREQUAL:$<PLATFORM_ID>,Linux>,$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>>:-Werror>
+                       $<$<AND:$<STREQUAL:$<PLATFORM_ID>,Linux>,$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>>:-pedantic>
+                       )
 
 target_link_libraries(pipes_test
     PUBLIC
 	Catch2::Catch2WithMain
+    pipes
 )
 
 # add to tests

@@ -1,4 +1,4 @@
-#include "catch.hpp"
+#include <catch2/catch_all.hpp>
 #include "pipes/dev_null.hpp"
 
 #include <vector>

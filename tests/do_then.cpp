@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <vector>
-#include "catch.hpp"
+#include <catch2/catch_all.hpp>
 
 #include "pipes/for_each.hpp"
 #include "pipes/do_then.hpp"

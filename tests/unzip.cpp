@@ -1,4 +1,4 @@
-#include "catch.hpp"
+#include <catch2/catch_all.hpp>
 #include "pipes/override.hpp"
 #include "pipes/transform.hpp"
 #include "pipes/push_back.hpp"

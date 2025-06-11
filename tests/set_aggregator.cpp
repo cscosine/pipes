@@ -2,7 +2,7 @@
 #include <set>
 #include <vector>
 
-#include "catch.hpp"
+#include <catch2/catch_all.hpp>
 #include "pipes/set_aggregator.hpp"
 
 struct Value

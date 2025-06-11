@@ -1,4 +1,4 @@
-#include "catch.hpp"
+#include <catch2/catch_all.hpp>
 #include "pipes/transform.hpp"
 #include "pipes/filter.hpp"
 #include "pipes/partition.hpp"

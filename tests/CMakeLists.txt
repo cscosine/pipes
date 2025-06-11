@@ -1,3 +1,9 @@
+project(pipes_test LANGUAGES CXX)
+
+include(CTest)
+find_package(Catch2 3 REQUIRED CONFIG)
+include(Catch)
+
 add_executable(pipes_test
     main.cpp
     adjacent.cpp
@@ -31,8 +37,8 @@ add_executable(pipes_test
 add_test(NAME pipes_test COMMAND pipes_test)
 
 target_include_directories(pipes_test PRIVATE
-                           $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-                           $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>)
+                           $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/../include>
+                           $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/../include>)
 
 target_compile_features(pipes_test PRIVATE cxx_std_14)
 
@@ -44,3 +50,11 @@ target_compile_options(pipes_test
                        $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Wextra>
                        $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-Werror>
                        $<$<OR:$<CXX_COMPILER_ID:GNU>,$<CXX_COMPILER_ID:Clang>>:-pedantic>)
+
+target_link_libraries(pipes_test
+    PUBLIC
+	Catch2::Catch2WithMain
+)
+
+# add to tests
+catch_discover_tests(pipes_test DISCOVERY_MODE "PRE_TEST")

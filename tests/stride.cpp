@@ -1,4 +1,4 @@
-#include "catch.hpp"
+#include <catch2/catch_all.hpp>
 #include "pipes/pipes.hpp"
 
 TEST_CASE("stride passes every N th element starting from 0")

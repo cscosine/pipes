@@ -1,4 +1,4 @@
-#include "catch.hpp"
+#include <catch2/catch_all.hpp>
 #include "pipes/pipes.hpp"
 
 TEST_CASE("drop_while ignores the first N elements and passes on the elements after")

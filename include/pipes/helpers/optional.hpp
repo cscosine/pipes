@@ -1,8 +1,24 @@
 #ifndef PIPES_OPTIONAL_HPP
 #define PIPES_OPTIONAL_HPP
 
+#ifdef _MSC_VER 
+// VS versions https://learn.microsoft.com/en-us/cpp/overview/compiler-versions?view=msvc-170
+  #if _MSC_VER >= 1930 && _MSC_VER <= 1949
+    #define USE_LOCAL_OPTIONAL_IMPL
+  #else 
+    static_assert(false, "Unsupported Visual Studio Version");
+  #endif
+#else
+  #if __cplusplus < 201703L
+  #define USE_LOCAL_OPTIONAL_IMPL
+  #else
+  // nothing to do, ok with std impl
+  #endif
+#endif
+
+
 #include <type_traits>
-#if __cplusplus >= 201703L
+#ifndef USE_LOCAL_OPTIONAL_IMPL
 #  include <optional>
 #endif
 
@@ -10,7 +26,7 @@ namespace pipes
 {
 namespace detail
 {
-#if __cplusplus >= 201703L
+#ifndef USE_LOCAL_OPTIONAL_IMPL
     using nullopt_t = std::nullopt_t;
     static const nullopt_t nullopt = std::nullopt;
 

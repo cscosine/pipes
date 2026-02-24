@@ -3,7 +3,7 @@
 
 #ifdef _MSC_VER 
 // VS versions https://learn.microsoft.com/en-us/cpp/overview/compiler-versions?view=msvc-170
-  #if _MSC_VER >= 1930 && _MSC_VER <= 1949
+  #if _MSC_VER >= 1930 && _MSC_VER <= 1959
     #define USE_LOCAL_OPTIONAL_IMPL
   #else 
     static_assert(false, "Unsupported Visual Studio Version");

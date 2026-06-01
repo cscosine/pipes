@@ -1,11 +1,6 @@
 {
   "version": 10,
   "include": [
-    "${sourceParentDir}/csCMake/presets/msvc2022-x64-workflow-release.json",
-    "${sourceParentDir}/csCMake/presets/msvc2022-x64-LLVM-workflow-release.json",
-    "${sourceParentDir}/csCMake/presets/msvc2026-x64-workflow-release.json",
-    "${sourceParentDir}/csCMake/presets/msvc2026-x64-LLVM-workflow-release.json",
-    "${sourceParentDir}/csCMake/presets/linux-ninja-workflow-release.json",
-    "${sourceParentDir}/csCMake/presets/linux-ninja-multi-config-clang-workflow-release.json"
+    "${sourceParentDir}/csCMake/presets/csv1/cs-presets-all.json"
   ]
 }
